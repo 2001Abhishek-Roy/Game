@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Online Store</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body, html {
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #container {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header .logo h1 {
+            margin: 0;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: center;
+            background-color: #444;
+            padding: 10px;
+        }
+
+        .tabs button {
+            background-color: #333;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        .tabs button.active {
+            background-color: #ff6600;
+        }
+
+        .tab-content {
+            display: none;
+            padding: 20px;
+            background-color: white;
+            flex: 1;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .hero {
+            background-color: #282c34;
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .hero h2 {
+            font-size: 48px;
+        }
+
+        .games-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .game-card {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+        }
+
+        .game-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .game-card button {
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .featured-section {
+            padding: 30px 20px;
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .featured-section h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .slider {
+            display: flex;
+            overflow-x: auto;
+            padding: 20px 0;
+        }
+
+        .slider img {
+            width: 300px;
+            margin: 0 10px;
+            border-radius: 10px;
+        }
+
+        .offers-section {
+            padding: 30px 20px;
+            background-color: #fff5e6;
+            text-align: center;
+        }
+
+        .offers-section h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .offers-section .offer {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+        }
+
+        .offers-section .offer div {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            width: 30%;
+        }
+
+        .testimonial-section {
+            padding: 30px 20px;
+            background-color: #e6f7ff;
+            text-align: center;
+        }
+
+        .testimonial-section h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-section p {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-section {
+            padding: 30px 20px;
+            background-color: #eaeaea;
+            text-align: center;
+        }
+
+        .newsletter-section h3 {
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-section input[type="email"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 50%;
+            border: 1px solid #ddd;
+        }
+
+        .newsletter-section button {
+            padding: 10px 20px;
+            background-color: #ff6600;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        .social-links {
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            margin: 0 10px;
+            color: #ff6600;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+
+<div id="container">
+    <header>
+        <div class="logo">
+            <h1>GameZone</h1>
+        </div>
+    </header>
+
+    <!-- Tabs -->
+    <div class="tabs">
+        <button class="tab-button active" data-tab="home">Home</button>
+        <button class="tab-button" data-tab="games">Games</button>
+        <button class="tab-button" data-tab="about">About</button>
+        <button class="tab-button" data-tab="contact">Contact</button>
+        <button class="tab-button" data-tab="cart">Cart (<span id="cart-count">0</span>)</button>
+    </div>
+
+    <!-- Tab Content -->
+    <div id="home" class="tab-content active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2>Discover the Best Games</h2>
+            <p>Browse and purchase the latest and greatest video games.</p>
+        </section>
+
+        <!-- Featured Games Section -->
+        <section class="featured-section">
+            <h3>Featured Games</h3>
+            <div class="slider">
+                <img src="game_featured1.jpg" alt="Featured Game 1">
+                <img src="game_featured2.jpg" alt="Featured Game 2">
+                <img src="game_featured3.jpg" alt="Featured Game 3">
+            </div>
+        </section>
+
+        <!-- Special Offers Section -->
+        <section class="offers-section">
+            <h3>Special Offers</h3>
+            <div class="offer">
+                <div>
+                    <h4>50% Off</h4>
+                    <p>On selected games.</p>
+                </div>
+                <div>
+                    <h4>Buy 1 Get 1 Free</h4>
+                    <p>On all adventure games.</p>
+                </div>
+                <div>
+                    <h4>20% Discount</h4>
+                    <p>For new members.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonial-section">
+            <h3>What Our Customers Say</h3>
+            <p>"GameZone has the best selection and unbeatable prices!" - Alex</p>
+            <p>"A fantastic experience every time. Highly recommend!" - Jamie</p>
+        </section>
+
+        <!-- Newsletter Signup Section -->
+        <section class="newsletter-section">
+            <h3>Subscribe to Our Newsletter</h3>
+            <input type="email" placeholder="Enter your email address">
+            <button>Subscribe</button>
+
+            <div class="social-links">
+                <a href="#" title="Follow us on Facebook">&#xf09a;</a>
+                <a href="#" title="Follow us on Twitter">&#xf099;</a>
+                <a href="#" title="Follow us on Instagram">&#xf16d;</a>
+            </div>
+        </section>
+    </div>
+
+    <!-- Other Tabs (Games, About, Contact, Cart) ... -->
+
+    <footer>
+        <p>&copy; 2024 GameZone. All rights reserved.</p>
+    </footer>
+</div>
+
+<script>
+    // JavaScript for Tab functionality
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // Remove active class from all buttons and content
+            tabButtons.forEach(btn => btn.classList.remove('active'));
+            tabContents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to clicked button and corresponding content
+            button.classList.add('active');
+            const tabId = button.getAttribute('data-tab');
+            document.getElementById(tabId).classList.add('active');
+        });
+    });
+
+    // JavaScript for Cart functionality
+    let cartCount = 0;
+    const cartCountElement = document.getElementById('cart-count');
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+
+    addToCartButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const gameTitle = button.getAttribute('data-game');
+            const gamePrice = button.getAttribute('data-price');
+            
+            cartCount++;
+            cartCountElement.textContent = cartCount;
+
+            alert(`${gameTitle} has been added to your cart for $${gamePrice}.`);
+        });
+    });
+</script>
+
+</body>
+</html>
