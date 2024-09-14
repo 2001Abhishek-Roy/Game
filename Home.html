@@ -269,6 +269,70 @@
             font-size: 16px;
             color: #777;
         }
+
+        /* Contact Us Page */
+        .contact-section {
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .contact-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .contact-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: #666;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .contact-form label {
+            font-size: 16px;
+            color: #333;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            font-size: 16px;
+        }
+
+        .contact-form button {
+            background-color: #ff6600;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-details h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .contact-details p {
+            font-size: 16px;
+            color: #555;
+        }
     </style>
 </head>
 <body>
@@ -289,7 +353,7 @@
         <button class="tab-button" data-tab="cart">Cart (<span id="cart-count">0</span>)</button>
     </div>
 
-    <!-- Tab Content -->
+    <!-- Home Tab Content -->
     <div id="home" class="tab-content active">
         <!-- Hero Section -->
         <section class="hero">
@@ -307,104 +371,109 @@
             </div>
         </section>
 
-        <!-- Special Offers Section -->
+        <!-- Offers Section -->
         <section class="offers-section">
-            <h3>Special Offers</h3>
+            <h3>Latest Offers</h3>
             <div class="offer">
                 <div>
-                    <h4>50% Off</h4>
-                    <p>On selected games.</p>
+                    <h4>50% off on Action Games</h4>
+                    <p>Get half price on selected action titles.</p>
                 </div>
                 <div>
                     <h4>Buy 1 Get 1 Free</h4>
-                    <p>On all adventure games.</p>
+                    <p>Offer valid for RPG games only.</p>
                 </div>
                 <div>
-                    <h4>20% Discount</h4>
-                    <p>For new members.</p>
+                    <h4>Exclusive Pre-Order Bonuses</h4>
+                    <p>Pre-order now to receive exclusive in-game rewards.</p>
                 </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section class="testimonial-section">
-            <h3>What Our Customers Say</h3>
-            <p>"GameZone has the best selection and unbeatable prices!" - Alex</p>
-            <p>"A fantastic experience every time. Highly recommend!" - Jamie</p>
-        </section>
-
-        <!-- Newsletter Signup Section -->
-        <section class="newsletter-section">
-            <h3>Subscribe to Our Newsletter</h3>
-            <input type="email" placeholder="Enter your email address">
-            <button>Subscribe</button>
-
-            <div class="social-links">
-                <a href="#" title="Follow us on Facebook">&#xf09a;</a>
-                <a href="#" title="Follow us on Twitter">&#xf099;</a>
-                <a href="#" title="Follow us on Instagram">&#xf16d;</a>
             </div>
         </section>
     </div>
 
-    <!-- Games Tab -->
+    <!-- Games Tab Content -->
     <div id="games" class="tab-content">
-        <section class="games-container">
+        <h2>All Games</h2>
+        <div class="games-container">
             <div class="game-card">
                 <img src="game1.jpg" alt="Game 1">
                 <h4>Game Title 1</h4>
-                <p>$59.99</p>
-                <button class="add-to-cart" data-game="Game Title 1" data-price="59.99">Add to Cart</button>
+                <p>$29.99</p>
+                <button>Add to Cart</button>
             </div>
             <div class="game-card">
                 <img src="game2.jpg" alt="Game 2">
                 <h4>Game Title 2</h4>
                 <p>$49.99</p>
-                <button class="add-to-cart" data-game="Game Title 2" data-price="49.99">Add to Cart</button>
+                <button>Add to Cart</button>
             </div>
             <div class="game-card">
                 <img src="game3.jpg" alt="Game 3">
                 <h4>Game Title 3</h4>
-                <p>$39.99</p>
-                <button class="add-to-cart" data-game="Game Title 3" data-price="39.99">Add to Cart</button>
+                <p>$19.99</p>
+                <button>Add to Cart</button>
             </div>
             <div class="game-card">
                 <img src="game4.jpg" alt="Game 4">
                 <h4>Game Title 4</h4>
-                <p>$29.99</p>
-                <button class="add-to-cart" data-game="Game Title 4" data-price="29.99">Add to Cart</button>
+                <p>$39.99</p>
+                <button>Add to Cart</button>
             </div>
-        </section>
+        </div>
     </div>
 
-    <!-- About Us Tab -->
+    <!-- About Us Tab Content -->
     <div id="about" class="tab-content">
         <section class="about-section">
             <h2>About GameZone</h2>
-            <p>GameZone is the ultimate destination for gamers, offering a wide selection of video games across various genres. Our mission is to provide gamers with the latest and greatest in gaming, all while delivering an exceptional shopping experience.</p>
-            <p>Founded in 2020, GameZone has grown into a trusted platform for gaming enthusiasts. We are committed to curating a collection of top-tier games, exclusive offers, and a community-driven experience for our customers.</p>
-
+            <p>GameZone is your ultimate destination for the latest video games. We offer a wide variety of titles from every genre, bringing you closer to the gaming world with our exclusive deals and top-notch service.</p>
             <div class="team">
                 <div class="team-member">
-                    <img src="team_member1.jpg" alt="Team Member 1">
+                    <img src="team1.jpg" alt="Team Member 1">
                     <h4>John Doe</h4>
                     <p>Founder & CEO</p>
                 </div>
                 <div class="team-member">
-                    <img src="team_member2.jpg" alt="Team Member 2">
+                    <img src="team2.jpg" alt="Team Member 2">
                     <h4>Jane Smith</h4>
-                    <p>Head of Operations</p>
+                    <p>Marketing Head</p>
                 </div>
                 <div class="team-member">
-                    <img src="team_member3.jpg" alt="Team Member 3">
-                    <h4>Mike Johnson</h4>
+                    <img src="team3.jpg" alt="Team Member 3">
+                    <h4>Michael Lee</h4>
                     <p>Lead Developer</p>
                 </div>
             </div>
         </section>
     </div>
 
-    <!-- Other Tabs (Contact, Cart) -->
+    <!-- Contact Us Tab Content -->
+    <div id="contact" class="tab-content">
+        <section class="contact-section">
+            <h2>Contact Us</h2>
+            <p>If you have any questions or need support, feel free to reach out to us.</p>
+            <div class="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Your Name">
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" placeholder="Your Email">
+
+                <label for="message">Message</label>
+                <textarea id="message" rows="4" placeholder="Your Message"></textarea>
+
+                <button type="submit">Send Message</button>
+            </div>
+
+            <div class="contact-details">
+                <h4>Email:</h4>
+                <p>support@gamezone.com</p>
+                
+                <h4>Phone:</h4>
+                <p>+1 (800) 123-4567</p>
+            </div>
+        </section>
+    </div>
 
     <footer>
         <p>&copy; 2024 GameZone. All rights reserved.</p>
@@ -412,37 +481,17 @@
 </div>
 
 <script>
-    // JavaScript for Tab functionality
-    const tabButtons = document.querySelectorAll('.tab-button');
-    const tabContents = document.querySelectorAll('.tab-content');
+    // Tab functionality
+    const tabs = document.querySelectorAll('.tab-button');
+    const contents = document.querySelectorAll('.tab-content');
 
-    tabButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            // Remove active class from all buttons and content
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabContents.forEach(content => content.classList.remove('active'));
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
 
-            // Add active class to clicked button and corresponding content
-            button.classList.add('active');
-            const tabId = button.getAttribute('data-tab');
-            document.getElementById(tabId).classList.add('active');
-        });
-    });
-
-    // JavaScript for Cart functionality
-    let cartCount = 0;
-    const cartCountElement = document.getElementById('cart-count');
-    const addToCartButtons = document.querySelectorAll('.add-to-cart');
-
-    addToCartButtons.forEach(button => {
-        button.addEventListener('click', () => {
-            const gameTitle = button.getAttribute('data-game');
-            const gamePrice = button.getAttribute('data-price');
-            
-            cartCount++;
-            cartCountElement.textContent = cartCount;
-
-            alert(`${gameTitle} has been added to your cart for $${gamePrice}.`);
+            contents.forEach(content => content.classList.remove('active'));
+            document.getElementById(tab.dataset.tab).classList.add('active');
         });
     });
 </script>
