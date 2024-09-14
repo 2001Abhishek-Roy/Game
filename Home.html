@@ -215,6 +215,60 @@
             text-align: center;
             margin-top: auto;
         }
+
+        /* About Us Page */
+        .about-section {
+            padding: 40px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .about-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .about-section p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #666;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-section .team {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .about-section .team-member {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            text-align: center;
+            width: 200px;
+        }
+
+        .about-section .team-member img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+
+        .about-section .team-member h4 {
+            font-size: 20px;
+            margin-top: 15px;
+            color: #333;
+        }
+
+        .about-section .team-member p {
+            font-size: 16px;
+            color: #777;
+        }
     </style>
 </head>
 <body>
@@ -323,7 +377,34 @@
         </section>
     </div>
 
-    <!-- Other Tabs (About, Contact, Cart) -->
+    <!-- About Us Tab -->
+    <div id="about" class="tab-content">
+        <section class="about-section">
+            <h2>About GameZone</h2>
+            <p>GameZone is the ultimate destination for gamers, offering a wide selection of video games across various genres. Our mission is to provide gamers with the latest and greatest in gaming, all while delivering an exceptional shopping experience.</p>
+            <p>Founded in 2020, GameZone has grown into a trusted platform for gaming enthusiasts. We are committed to curating a collection of top-tier games, exclusive offers, and a community-driven experience for our customers.</p>
+
+            <div class="team">
+                <div class="team-member">
+                    <img src="team_member1.jpg" alt="Team Member 1">
+                    <h4>John Doe</h4>
+                    <p>Founder & CEO</p>
+                </div>
+                <div class="team-member">
+                    <img src="team_member2.jpg" alt="Team Member 2">
+                    <h4>Jane Smith</h4>
+                    <p>Head of Operations</p>
+                </div>
+                <div class="team-member">
+                    <img src="team_member3.jpg" alt="Team Member 3">
+                    <h4>Mike Johnson</h4>
+                    <p>Lead Developer</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Other Tabs (Contact, Cart) -->
 
     <footer>
         <p>&copy; 2024 GameZone. All rights reserved.</p>
