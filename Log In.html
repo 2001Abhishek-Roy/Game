@@ -109,12 +109,44 @@
                 color: red;
                 text-align: left;
             }
+
+            /* Success modal styles */
+            .success-modal-content {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                width: 300px;
+                text-align: center;
+                animation: fadeIn 1s ease-out;
+            }
+            .success-modal-content i {
+                color: green;
+                font-size: 50px;
+                margin-bottom: 10px;
+                animation: popIn 0.5s ease-in-out;
+            }
+            .success-message {
+                color: green;
+                font-size: 18px;
+                font-weight: bold;
+            }
+
+            /* Animations */
+            @keyframes fadeIn {
+                from { opacity: 0; transform: scale(0.8); }
+                to { opacity: 1; transform: scale(1); }
+            }
+
+            @keyframes popIn {
+                from { opacity: 0; transform: scale(0.5); }
+                to { opacity: 1; transform: scale(1); }
+            }
         </style>
     </head>
     <body>
         <div class="box">
             <h1>Log In</h1><br><br>
-            <form onsubmit="return validateForm()" action="Navbar.html">
+            <form onsubmit="return validateForm()">
                 <div class="p1">
                     <input type="text" id="username" placeholder="Username">
                     <i class='bx bxs-user'></i>
@@ -132,9 +164,17 @@
         <!-- Modal for showing errors -->
         <div id="errorModal" class="modal">
             <div class="modal-content">
-                <span class="close" onclick="closeModal()">&times;</span>
+                <span class="close" onclick="closeModal('errorModal')">&times;</span>
                 <h3>Error</h3>
                 <ul id="errorList" class="error-list"></ul>
+            </div>
+        </div>
+
+        <!-- Modal for success -->
+        <div id="successModal" class="modal">
+            <div class="success-modal-content">
+                <i class='bx bx-check-circle'></i>
+                <p class="success-message">Login Successful!</p>
             </div>
         </div>
 
@@ -159,33 +199,49 @@
                 }
 
                 if (errors.length > 0) {
-                    showModal(errors);
+                    showModal('errorModal', errors);
                     return false;
+                } else {
+                    showSuccessModal();
+                    return false; // Prevents form submission to demonstrate modal
                 }
-
-                return true; // Proceed to submit the form
             }
 
-            function showModal(errors) {
-                var modal = document.getElementById("errorModal");
+            function showModal(modalId, errors) {
+                var modal = document.getElementById(modalId);
                 var errorList = document.getElementById("errorList");
-                errors.forEach(function (error) {
-                    var li = document.createElement("li");
-                    li.textContent = error;
-                    errorList.appendChild(li);
-                });
+                if (errors) {
+                    errors.forEach(function (error) {
+                        var li = document.createElement("li");
+                        li.textContent = error;
+                        errorList.appendChild(li);
+                    });
+                }
                 modal.style.display = "flex";
             }
 
-            function closeModal() {
-                var modal = document.getElementById("errorModal");
+            function showSuccessModal() {
+                var modal = document.getElementById("successModal");
+                modal.style.display = "flex";
+                setTimeout(function() {
+                    closeModal('successModal');
+                    window.location.href = 'Home.html'; // Redirects to home page after modal
+                }, 2000); // Closes modal after 2 seconds
+            }
+
+            function closeModal(modalId) {
+                var modal = document.getElementById(modalId);
                 modal.style.display = "none";
             }
 
             window.onclick = function (event) {
-                var modal = document.getElementById("errorModal");
-                if (event.target === modal) {
-                    modal.style.display = "none";
+                var errorModal = document.getElementById("errorModal");
+                var successModal = document.getElementById("successModal");
+                if (event.target === errorModal) {
+                    closeModal('errorModal');
+                }
+                if (event.target === successModal) {
+                    closeModal('successModal');
                 }
             };
         </script>
