@@ -2,8 +2,114 @@
 <html>
     <head>
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-        <link rel="stylesheet" href="Login.css">
-        <link rel="stylesheet" href="Login.js">
+        <style>
+            body {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                background-image: url(Log2.jpg);
+                background-size: cover;
+            }
+            .box {
+                height: 350px;
+                width: 350px;
+                border: 2px solid white;
+                border-radius: 20px;
+                padding-top: 30px;
+                padding-right: 30px;
+                padding-bottom: 30px;
+                padding-left: 30px;
+                backdrop-filter: blur(10px);
+                text-align: center;
+                color: white;
+            }
+            h1 {
+                font-size: 36px;
+                font-family: Arial;
+                margin-bottom: 20px;
+            }
+            input {
+                height: 40px;
+                width: calc(100% - 30px);
+                border-radius: 15px;
+                padding-left: 20px;
+                color: black;
+                border: none;
+                background-color: whitesmoke;
+                margin-bottom: 10px;
+            }
+            input:hover, input:focus {
+                border: 1px solid black;
+                outline: none;
+            }
+            .p1 {
+                width: 100%;
+                height: 50px;
+                position: relative;
+                margin-bottom: 20px;
+            }
+            .p1 i {
+                position: absolute;
+                right: 15px;
+                top: 10px;
+                pointer-events: none;
+                color: black;
+            }
+            button {
+                height: 40px;
+                width: 200px;
+                border-radius: 20px;
+                border: none;
+                background-color: #fff;
+                color: #000;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+            button:focus, button:hover {
+                background-color: violet;
+                color: white;
+            }
+
+            /* Modal styles */
+            .modal {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5);
+                justify-content: center;
+                align-items: center;
+            }
+            .modal-content {
+                background-color: white;
+                padding: 20px;
+                border-radius: 10px;
+                width: 300px;
+                text-align: center;
+            }
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+            .close:hover, .close:focus {
+                color: black;
+                text-decoration: none;
+                cursor: pointer;
+            }
+            .error-list {
+                list-style-type: none;
+                padding: 0;
+                color: red;
+                text-align: left;
+            }
+        </style>
     </head>
     <body>
         <div class="box">
@@ -12,17 +118,76 @@
                 <div class="p1">
                     <input type="text" id="username" placeholder="Username">
                     <i class='bx bxs-user'></i>
-                    <div id="username-error" class="error-message"></div>
                 </div>
                 
                 <div class="p1">
                     <input type="password" id="password" placeholder="Password">
                     <i class='bx bxs-lock-alt'></i>
-                    <div id="password-error" class="error-message"></div>
                 </div>
                 <button type="submit">Login</button><br><br>
                 <a href="Forgot Password.html" style="color: white;text-decoration: none;float: right;"> Forgot Password </a>
             </form>
         </div>
+
+        <!-- Modal for showing errors -->
+        <div id="errorModal" class="modal">
+            <div class="modal-content">
+                <span class="close" onclick="closeModal()">&times;</span>
+                <h3>Error</h3>
+                <ul id="errorList" class="error-list"></ul>
+            </div>
+        </div>
+
+        <script>
+            function validateForm() {
+                var username = document.getElementById("username").value;
+                var password = document.getElementById("password").value;
+                var errorList = document.getElementById("errorList");
+                var errors = [];
+                errorList.innerHTML = ""; // Clear previous errors
+
+                if (username === "") {
+                    errors.push("Username is required.");
+                } else if (username.length < 3) {
+                    errors.push("Username must be at least 3 characters long.");
+                }
+
+                if (password === "") {
+                    errors.push("Password is required.");
+                } else if (password.length < 6) {
+                    errors.push("Password must be at least 6 characters long.");
+                }
+
+                if (errors.length > 0) {
+                    showModal(errors);
+                    return false;
+                }
+
+                return true; // Proceed to submit the form
+            }
+
+            function showModal(errors) {
+                var modal = document.getElementById("errorModal");
+                var errorList = document.getElementById("errorList");
+                errors.forEach(function (error) {
+                    var li = document.createElement("li");
+                    li.textContent = error;
+                    errorList.appendChild(li);
+                });
+                modal.style.display = "flex";
+            }
+
+            function closeModal() {
+                var modal = document.getElementById("errorModal");
+                modal.style.display = "none";
+            }
+
+            window.onclick = function (event) {
+                var modal = document.getElementById("errorModal");
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            };
+        </script>
     </body>
 </html>
